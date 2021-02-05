@@ -12,21 +12,7 @@
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "vector": "cpp",
-        "algorithm": "cpp",
-        "exception": "cpp",
-        "ios": "cpp",
-        "istream": "cpp",
-        "map": "cpp",
-        "memory": "cpp",
-        "queue": "cpp",
-        "set": "cpp",
-        "streambuf": "cpp",
-        "tuple": "cpp",
-        "utility": "cpp",
-        "xhash": "cpp",
-        "xiosbase": "cpp",
-        "xstring": "cpp",
-        "xtree": "cpp"
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
