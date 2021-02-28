@@ -10,25 +10,29 @@ typedef vector<ii> vii;
 typedef vector<char> vc;
 typedef vector<string> vs;
 
-int main()
-{
+
+int main(){
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
     int yr;
     cin >> yr;
-    yr %= 10;
-    int a = yr;
-    yr %= 10;
-    int b = yr;
-    yr %= 10;
-    int c = 10;
-    yr %= 10;
-    int d = yr;
-    while (true)
-    {
-        if()
+    while(true){
+        yr++;
+        int a = yr / 1000;
+        
+        int b = yr/100 % 10;
+        
+        int c = yr / 10 %10;
+
+        int d = yr % 10;
+        if(a!=b && a!=c && a!=d && b!=c && b!=d && c!=d){
+            break;
+        }
+
+
     }
+    cout << yr;
 
     return 0;
 }
