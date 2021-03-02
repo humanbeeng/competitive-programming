@@ -45,7 +45,7 @@ int main(){
         fo(j,3){
             cout << arr[i][j];
         }
-        cout << endl;
+        printf("\n");
     }
 
     return 0;
