@@ -22,11 +22,11 @@ int main(){
     fo(i, t){
         int k;
         cin >> k;
-        unordered_map<char, double> st;
-        unordered_map<char, double>::iterator itr;
+        unordered_map<char, int> st;
+        unordered_map<char, int>::iterator itr;
         fo(i, k) {
             char key;
-            double value;
+            int value;
             cin >> key >> value;
             st[key] = value;
         }
