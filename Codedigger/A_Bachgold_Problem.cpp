@@ -1,3 +1,6 @@
+/*
+Author : humanbeeng
+*/
 #include <bits/stdc++.h>
 #define fo(i, n) for (int i = 0; i < n; i++)
 #define pb(num) push_back(num)
@@ -17,8 +20,6 @@ typedef set<string, int> ssi;
 typedef set<int> si;
 typedef set<string> ss;
 
-using arr = array<int, 26>;
-
 void setio(string s) { // FastIO See General -> Input/Output
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -26,32 +27,30 @@ void setio(string s) { // FastIO See General -> Input/Output
     freopen((s + ".out").c_str(), "w", stdout);
 }
 
-void countFrequency(const string &s, arr &freq) {
-    for (char c : s) {
-        freq[c - 'a']++;
-    }
-}
-
 int main() {
-    setio("blocks");
-    int n;
-    cin >> n;
-    string s1, s2;
-    arr res{};
-    while (n--) {
-        cin >> s1;
-        cin >> s2;
-        arr freq1{};
-        arr freq2{};
-        countFrequency(s1, freq1);
-        countFrequency(s2, freq2);
-        for (int i = 0; i < 26; i++) {
-            res[i] += max(freq1[i], freq2[i]);
-        }
-    }
+    //setio("");
+    int t = 1;
+    //cin >> t;
+    fo(i, t) {
+        int n;
+        cin >> n;
+        int resno;
+        if (n % 2 == 0) {
+            resno = n / 2;
+            cout << resno << endl;
+            fo(i, resno) {
 
-    for (int item : res) {
-        cout << item << endl;
+                cout << 2 << ' ';
+            }
+        } else {
+            resno = (n - 1) / 2;
+            cout << resno << endl;
+            fo(i, resno - 1) {
+
+                cout << 2 << ' ';
+            }
+            cout << 3;
+        }
     }
 
     return 0;
