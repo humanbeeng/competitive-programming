@@ -8,7 +8,7 @@ Author : humanbeeng
 #define all(arr) arr.begin(), arr.end()
 using namespace std;
 typedef vector<int> vi;
-
+#define pi(arr) for(int i=0; i<sizeof(arr)/sizeof(arr[0]); i++) cout << arr[i] << ' '
 typedef pair<int, int> ii;
 typedef long long ll;
 typedef vector<ii> vii;
@@ -19,19 +19,23 @@ typedef set<int> si;
 typedef set<string> ss;
 
 
-void setio(string s){ // FastIO See General -> Input/Output
+void setio(string s){
     ios_base::sync_with_stdio(0); cin.tie(0);
     freopen((s+".in").c_str(),"r",stdin);
     freopen((s+".out").c_str(),"w",stdout);
 }
 
-int fun(int n){
-    if(n==0){
-        return 1;
-    }else return (7+fun(n-2));
-}
 
 int main(){
-    cout << fun(4);
+    //setio("");
+    int t=1; 
+    //cin >> t;
+    while(t--){
+    
+
+    }
+
+
+
     return 0;
 }

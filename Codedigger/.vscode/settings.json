@@ -26,7 +26,8 @@
         "xhash": "cpp",
         "xiosbase": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "iosfwd": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

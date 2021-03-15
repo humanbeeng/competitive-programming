@@ -8,7 +8,9 @@ Author : humanbeeng
 #define all(arr) arr.begin(), arr.end()
 using namespace std;
 typedef vector<int> vi;
-
+#define pi(arr)                                            \
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) \
+    cout << arr[i] << ' '
 typedef pair<int, int> ii;
 typedef long long ll;
 typedef vector<ii> vii;
@@ -18,7 +20,7 @@ typedef set<string, int> ssi;
 typedef set<int> si;
 typedef set<string> ss;
 
-void setio(string s) { // FastIO See General -> Input/Output
+void setio(string s) {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     freopen((s + ".in").c_str(), "r", stdin);
@@ -26,21 +28,20 @@ void setio(string s) { // FastIO See General -> Input/Output
 }
 
 int main() {
-    setio("promote");
-    
-    int count[100][100];
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 2; j++) {
-            cin >> count[i][j];
+    signed int n;
+    while (cin >> n) {
+        int temp = n;
+        int p = 0;
+        int count = 0;
+        while (count < 4) {
+            p <<= 8;
+            int lastEightBits = (temp & 255);
+            temp >>= 8;
+            p += lastEightBits;
+            count++;
         }
+        cout << n << " converts to " << p << endl;
     }
-
-    int BS = count[1][1] + count[2][1] + count[3][1] - count[1][0] - count[2][0] - count[3][0];
-    int SG = count[2][1] + count[3][1] - count[2][0] - count[3][0];
-    int GP = count[3][1] - count[3][0];
-    cout << BS << "\n"
-         << SG << "\n"
-         << GP;
 
     return 0;
 }

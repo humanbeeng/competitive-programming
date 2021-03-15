@@ -8,7 +8,9 @@ Author : humanbeeng
 #define all(arr) arr.begin(), arr.end()
 using namespace std;
 typedef vector<int> vi;
-
+#define pi(arr)                                            \
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) \
+    cout << arr[i] << ' '
 typedef pair<int, int> ii;
 typedef long long ll;
 typedef vector<ii> vii;
@@ -17,8 +19,10 @@ typedef unsigned long long ull;
 typedef set<string, int> ssi;
 typedef set<int> si;
 typedef set<string> ss;
+#define imx INT_MAX;
+#define imn INT_MIN;
 
-void setio(string s) { // FastIO See General -> Input/Output
+void setio(string s) {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     freopen((s + ".in").c_str(), "r", stdin);
@@ -26,21 +30,26 @@ void setio(string s) { // FastIO See General -> Input/Output
 }
 
 int main() {
-    setio("promote");
-    
-    int count[100][100];
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 2; j++) {
-            cin >> count[i][j];
+
+    int n;
+    cin >> n;
+    int res = 0;
+    int arr[102] = {0};
+    for(int i = 1; i<=n; ++i) {
+        int num;
+        cin >> num;
+        arr[i] = arr[i-1] ^ num;
+    }
+    ;
+    for(int i=0; i< n;++i) {
+        for (int j = i+1; j <=n; ++j) {
+            int xx = arr[i] ^ arr[j];
+            res = max(res, xx);
         }
     }
-
-    int BS = count[1][1] + count[2][1] + count[3][1] - count[1][0] - count[2][0] - count[3][0];
-    int SG = count[2][1] + count[3][1] - count[2][0] - count[3][0];
-    int GP = count[3][1] - count[3][0];
-    cout << BS << "\n"
-         << SG << "\n"
-         << GP;
+    cout << res << endl;
 
     return 0;
+
+    
 }
