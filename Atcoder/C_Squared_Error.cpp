@@ -13,6 +13,7 @@ using namespace std;
 #define imn INT_MIN
 #define imx INT_MAX
 #define mod 1000000007
+#define sf(num) scanf("%d", &num);
 typedef vector<int> vi;
 typedef pair<int, int> ii;
 typedef long long ll;
@@ -32,19 +33,25 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int a, b, w;
-    cin >> a >> b >> w;
-    int minn;
-    int maxx;
-    double d = w * 1000;
-
-    minn = ceil(d / b);
-
-    maxx = floor(d / a);
-    if (minn > maxx)
-        cout << "UNSATISFIABLE" << endl;
-    else
-        cout << minn << " " << maxx;
+    ll n;
+    sf(n);
+    int arr[n + 1];
+    fo(i, n) {
+        sf(arr[i]);
+    }
+    ll res = 0;
+    ll A = 0;
+    fo(i, n){
+        A += (arr[i] * arr[i]);
+    }
+    ll B = 0;
+    fo(i, n){
+        B+=(arr[i]);
+        
+    }
+    B = B*B;
+    res = n*A - (B);
+    cout << res;
 
     return 0;
 }

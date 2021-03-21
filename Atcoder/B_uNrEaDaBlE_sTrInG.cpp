@@ -13,6 +13,7 @@ using namespace std;
 #define imn INT_MIN
 #define imx INT_MAX
 #define mod 1000000007
+#define sf(num) scanf("%d", &num)
 typedef vector<int> vi;
 typedef pair<int, int> ii;
 typedef long long ll;
@@ -31,20 +32,20 @@ void setio(string s) {
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    int a, b, w;
-    cin >> a >> b >> w;
-    int minn;
-    int maxx;
-    double d = w * 1000;
-
-    minn = ceil(d / b);
-
-    maxx = floor(d / a);
-    if (minn > maxx)
-        cout << "UNSATISFIABLE" << endl;
-    else
-        cout << minn << " " << maxx;
+    string str;
+    getline(cin, str);
+    string res = "Yes";
+    for (int i = 0; i < str.size(); i++) {
+        if (isupper(str[i]) && !(i & 1)) {
+            res = "No";
+            break;
+        }
+        if(islower(str[i]) && (i&1)){
+            res = "No";
+            break;
+        }
+    }
+    cout << res;
 
     return 0;
 }

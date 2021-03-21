@@ -32,19 +32,21 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int a, b, w;
-    cin >> a >> b >> w;
-    int minn;
-    int maxx;
-    double d = w * 1000;
-
-    minn = ceil(d / b);
-
-    maxx = floor(d / a);
-    if (minn > maxx)
-        cout << "UNSATISFIABLE" << endl;
-    else
-        cout << minn << " " << maxx;
-
+    int n;
+    cin >> n;
+    int res = imx;
+    int a[10000], b[100000];
+    
+    fo(i, n){
+        int ja, jb;
+        cin >> ja >> jb;
+        a[i] = ja; b[i] = jb;
+    }
+    fo(i, n){
+        fo(j, n){
+            res = min(res, (i==j)? a[i]+b[j] : max(a[i], b[j]));
+        }
+    }
+    cout << res;
     return 0;
 }

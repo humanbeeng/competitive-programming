@@ -2,6 +2,7 @@
 Author : humanbeeng
 */
 #include <bits/stdc++.h>
+#include <string>
 using namespace std;
 #define fo(i, n) for (int i = 0; i < n; i++)
 #define pb(num) push_back(num)
@@ -23,28 +24,26 @@ typedef set<string, int> ssi;
 typedef set<int> si;
 typedef set<string> ss;
 
-void setio(string s) {
-    freopen((s + ".in").c_str(), "r", stdin);
-    freopen((s + ".out").c_str(), "w", stdout);
-}
+
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
+   
 
-    int a, b, w;
-    cin >> a >> b >> w;
-    int minn;
-    int maxx;
-    double d = w * 1000;
-
-    minn = ceil(d / b);
-
-    maxx = floor(d / a);
-    if (minn > maxx)
-        cout << "UNSATISFIABLE" << endl;
-    else
-        cout << minn << " " << maxx;
+    unsigned long long n, ans = 0;
+    cin >> n;
+    if (n >= 1000)
+        ans += (n - 999);
+    if (n >= 1000000)
+        ans += (n - 999999);
+    if (n >= 1000000000)
+        ans += (n - 999999999);
+    if (n >= 1000000000000)
+        ans += (n - 999999999999);
+    if (n >= 1000000000000000)
+        ans += (n - 999999999999999);
+    cout << ans;
 
     return 0;
 }
