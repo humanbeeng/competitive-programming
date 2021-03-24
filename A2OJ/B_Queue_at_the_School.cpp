@@ -28,35 +28,21 @@ void setio(string s){
     freopen((s+".out").c_str(),"w",stdout);
 }
 
-int f(string a){
-
-}
-
-
-
 int solve(){
-    string n, k;
-    cin >> n >> k;
-    cout << n << endl;
+    int n, x;
+    cin >> n >> x;
+    string str;
+    cin >> str;
 
-    string g2 = n;
-    sort(g2.begin(), g2.end());
-    string g1 = n;
-    sort(g1.rbegin(), g1.rend());
-
-    stringstream converter1(g1);
-    int g11 = 0;
-    converter1 >> g11;
-    stringstream converter2(g2);
-    int g22 = 0;
-    converter2 >> g22;
-    cout << g11 << " " << g22 << " ";
-    
-    int res = n;
-
-    fo(i, 0, k){
-        
+    fo(i, 0, x){
+        for(int j = 0; j+1<n; j++){
+            if(str[j] == 'B' && str[j+1] == 'G'){
+                swap(str[j], str[j+1]);j++;
+            }
+        }
     }
+
+    cout << str ;
 
 
     return 0;

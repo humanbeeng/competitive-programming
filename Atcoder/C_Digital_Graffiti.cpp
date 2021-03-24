@@ -28,35 +28,43 @@ void setio(string s){
     freopen((s+".out").c_str(),"w",stdout);
 }
 
-int f(string a){
-
+int adj(char *arr, int posi, int posj){
+    // int points = 0;
+    // if(arr[posi-1][posj] == '.')points++;
+    // if(arr[posi+1][posj] == '.') points++;
+    // if(arr[posi][posj+1] == '.') points++;
+    // if(arr[posi][posj-1] == '.') points++;
+    // return points;
+    fo(i, 0, 5)
+    fo(j, 0, 5)
+    cout << arr[i][j];
+    cout << endl;
 }
 
-
-
 int solve(){
-    string n, k;
-    cin >> n >> k;
-    cout << n << endl;
+    int n, m;
+    char arr[n+4][m+4];
+    cin >> n >> m;
+    fo(i, 0, n){
+        fo(j, 0, m){
+            cin >> arr[i][j];
+        }
+    }
 
-    string g2 = n;
-    sort(g2.begin(), g2.end());
-    string g1 = n;
-    sort(g1.rbegin(), g1.rend());
-
-    stringstream converter1(g1);
-    int g11 = 0;
-    converter1 >> g11;
-    stringstream converter2(g2);
-    int g22 = 0;
-    converter2 >> g22;
-    cout << g11 << " " << g22 << " ";
-    
-    int res = n;
-
-    fo(i, 0, k){
+    int vertices = 0;
+    fo(i, 0, n){
+        fo(j, 0, m){
+            int adjpoints;
+            
+            if(adjpoints == 3){
+                vertices++;
+            }
+        }
         
     }
+    adjpoints =  adj(arr, i, j);
+
+    cout << vertices;
 
 
     return 0;
