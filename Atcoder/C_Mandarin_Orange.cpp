@@ -1,6 +1,5 @@
 /*
 Author : humanbeeng
-status : incomplete
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -30,19 +29,31 @@ void setio(string s){
 }
 
 int solve(){
-    int n, m;
-    cin >> n >> m;
-    int count = 0;
-    int arr[m+5][m+5];
-    fo(i, 1, m+1){
-        int a, b;
-        cin >> a >> b;
-
+    int n;
+    cin >> n;
+    int arr[n+5];
+    fo(i, 1, n+1){
+        cin >> arr[i];
     }
+    
+    int numofapples = 0;
 
-
-
-    cout << count;
+    int l = 1, r = n, x = 0;
+    int minn = arr[0];
+    while(l<=r){
+        fo(i, l, r+1){
+            minn  = min(minn, arr[i]);
+        }
+        numofapples = ((r-l)+1)*minn;
+        
+        x = max(x, numofapples);
+        if(arr[l] < arr[r]) l++;
+        else if(arr[l] > arr[r]) r--;
+        else l++; minn = arr[l];  
+        
+    }
+    cout << x;
+    
 
 
     return 0;

@@ -1,6 +1,5 @@
 /*
 Author : humanbeeng
-status : incomplete
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -32,17 +31,10 @@ void setio(string s){
 int solve(){
     int n, m;
     cin >> n >> m;
-    int count = 0;
-    int arr[m+5][m+5];
-    fo(i, 1, m+1){
-        int a, b;
-        cin >> a >> b;
-
-    }
-
-
-
-    cout << count;
+    int minpairs = 0;
+    int maxpairs = 0;
+    maxpairs = (n-m-1)(n-m-2)/2;
+    cout << maxpairs;
 
 
     return 0;
