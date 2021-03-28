@@ -11,6 +11,7 @@ using namespace std;
 #define imn INT_MIN
 #define imx INT_MAX
 #define mod 1000000007
+#define ssz(arrayy) sizeof(arrayy)/sizeof(arrayy[0])
 #define sf(num) scanf("%d", &num)
 typedef vector<int> vi;
 typedef pair<int, int> ii;
@@ -29,23 +30,20 @@ void setio(string s){
 }
 
 int solve(){
-    int n;
-    cin >> n;
-    int arr[n][2];
-    fo(i, 0, n){
-        int home, guest;
-        cin >> home >> guest;
-        arr[i][1] = home;
-        arr[i][2] = guest;
-    }
-    int count = 0;
-    fo(i, 0, n){
-        fo(j, 0, n){
-            if(arr[i][1] == arr[j][2]) count++;
-            if(arr[i][2] == arr[j][1]) count++;
-        }
-    }
-    cout << count/2;
+    int a, b, c;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+
+    int res = 0;
+    res = max(res, (a+b) + c);
+    res = max(res, a+(b*c));
+    res = max(res, (a*b) + c);
+    res = max(res, a*b*c);
+    res = max(res, a*(b+c));
+    res = max(res, (a+b)*c);
+    cout << res;
+    
 
 
     return 0;
