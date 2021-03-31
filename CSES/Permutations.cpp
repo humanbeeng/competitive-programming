@@ -33,23 +33,33 @@ void setio(string s) {
 int solve() {
     int n;
     cin >> n;
+
     int arr[n + 1];
-
-    fo(i, 0, n) {
-        int num;
-        cin >> num;
-        arr[i] = num;
-    }
-
-    ll count = 0;
-    fo(i, 0, n-1) {
-        if(arr[i+1] < arr[i]){
-            count = count + (arr[i] - arr[i+1]);
-            arr[i+1] = arr[i];
+    int i = (n / 2)+1;
+    int j = 1;
+    int num = 1;
+    int flag = 1;
+    fo(h, 1, n + 1) {
+        if (flag == 1) {
+            arr[i++] = num++;
+            flag = 0;
+        }
+        else{
+            arr[j++] = num++;
+            flag = 1;
         }
     }
 
-    cout << count;
+    fo(i, 1, n + 2) {
+        if (abs(arr[i] - arr[i + 1]) <= 1) {
+            cout << "NO SOLUTION";
+            return 0;
+        }
+    }
+
+    fo(i, 1, n+1){
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }

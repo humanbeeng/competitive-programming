@@ -31,25 +31,41 @@ void setio(string s) {
 }
 
 int solve() {
-    int n;
-    cin >> n;
-    int arr[n + 1];
+    // ll n;
+    // cin >> n;
+    // if(n<0){
+    //     ll backup = n;
+    //     int lastdigit = n%10;
+    //     ll lastdigitremoved = n/10;
+    //     n = n/10;
+    //     int lastbutone = n%10;
+    //     n = n/10;
+    //     ll lastbutoneremoved = n+lastdigit;
 
-    fo(i, 0, n) {
-        int num;
-        cin >> num;
-        arr[i] = num;
+    //     cout << min(lastdigitremoved, lastbutoneremoved);
+    // }else{
+    //     cout << n;
+    // }
+
+    string n;
+    getline(cin, n);
+    if (n[0] == '-') {
+        string ncopy = n;
+        char lastdigit = n[n.size() - 1];
+        char lastbutone = n[n.size() - 2];
+        string lastremoved = n.erase(n.size() - 1, 1);
+        string lastbutremoved = ncopy.erase(ncopy.size() - 2, 1);
+        stringstream conv(lastbutremoved);
+        ll lbr;
+        conv >> lbr;
+        ll lr;
+        stringstream conv2(lastremoved);
+        conv2 >> lr;
+
+        cout << max(lbr, lr);
+    }else{
+        cout << n;
     }
-
-    ll count = 0;
-    fo(i, 0, n-1) {
-        if(arr[i+1] < arr[i]){
-            count = count + (arr[i] - arr[i+1]);
-            arr[i+1] = arr[i];
-        }
-    }
-
-    cout << count;
 
     return 0;
 }
