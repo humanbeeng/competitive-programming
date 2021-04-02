@@ -30,27 +30,28 @@ void setio(string s) {
     freopen((s + ".out").c_str(), "w", stdout);
 }
 
-int solve() {
-    /
-    string n;
-    getline(cin, n);
-    if (n[0] == '-') {
-        string ncopy = n;
-        char lastdigit = n[n.size() - 1];
-        char lastbutone = n[n.size() - 2];
-        string lastremoved = n.erase(n.size() - 1, 1);
-        string lastbutremoved = ncopy.erase(ncopy.size() - 2, 1);
-        stringstream conv(lastbutremoved);
-        ll lbr;
-        conv >> lbr;
-        ll lr;
-        stringstream conv2(lastremoved);
-        conv2 >> lr;
 
-        cout << max(lbr, lr);
-    }else{
-        cout << n;
+
+int solve() {
+    string a;
+    string b;
+    cin >> a;
+    cin >> b;
+    int asize = a.size();
+    int bsize = b.size();
+    int moves = 0;
+
+    for(int len = 1; len <= min(asize, bsize); len++){
+        for(int i = 0;  i+len <= asize; i++){
+            for(int j = 0; j+len <= bsize; j++){
+                if(a.substr(i, len) == b.substr(j, len)){
+                    moves = max(moves, len);
+                }
+            }
+        }
     }
+
+    cout << asize + bsize - 2*moves << endl;
 
     return 0;
 }
@@ -60,7 +61,7 @@ int main() {
     cin.tie(0);
     //setio("");
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }

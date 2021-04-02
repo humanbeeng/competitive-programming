@@ -31,26 +31,30 @@ void setio(string s) {
 }
 
 int solve() {
-    /
-    string n;
-    getline(cin, n);
-    if (n[0] == '-') {
-        string ncopy = n;
-        char lastdigit = n[n.size() - 1];
-        char lastbutone = n[n.size() - 2];
-        string lastremoved = n.erase(n.size() - 1, 1);
-        string lastbutremoved = ncopy.erase(ncopy.size() - 2, 1);
-        stringstream conv(lastbutremoved);
-        ll lbr;
-        conv >> lbr;
-        ll lr;
-        stringstream conv2(lastremoved);
-        conv2 >> lr;
+    int n;
+    cin >> n;
+    vi arr(n);
 
-        cout << max(lbr, lr);
-    }else{
-        cout << n;
+    fo(i, 0, n) {
+        cin >> arr[i];
     }
+
+    vi res(n);
+    int temp = arr[n-1];
+    for (int i = n - 1; i >= 0; i--) {
+        temp = max(temp, arr[i]);
+        if(temp){
+            res[i] = 1;
+            temp--;
+        }
+    }
+
+
+    fo(i, 0, res.size()){
+        cout << res[i] << " ";
+    }
+
+    cout << endl;
 
     return 0;
 }
@@ -60,7 +64,7 @@ int main() {
     cin.tie(0);
     //setio("");
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
