@@ -30,44 +30,35 @@ void setio(string s) {
     freopen((s + ".out").c_str(), "w", stdout);
 }
 
-ll gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
-    return (gcd(b, a % b));
-}
-
-ll sumofdig(ll n) {
-    ll sumofdigits = 0;
-    ll nback = n;
-    while (nback) {
-        sumofdigits += nback % 10;
-        nback /= 10;
-    }
-    return sumofdigits;
-}
-
-ll gcdsum(ll x, ll gc) {
-    return gcd(x, sumofdig(x));
-}
-
 int solve() {
-    ll n;
-    cin >> n;
-    ll res = gcdsum(n, sumofdig(n));
-    if (res > 1) {
-        cout << n << endl;
-        return 0;
-    } else {
-        do {
-            n = n+1;
-            res = gcdsum(n, sumofdig(n));
-        } while (res == 1);
-
-        cout << n;
-        cout << endl;
+    int n, w;
+    cin >> n >> w;
+    int res = 1;
+    multiset<int> st;
+    fo(i, 0, n){
+        int num;
+        cin >> num;
+        st.insert(num);
     }
 
+    int layersize = w;
+
+    while(!st.empty()){
+        auto it = st.upper_bound(layersize);
+       
+        if(it != st.begin()){
+            it--;
+            layersize -= *it;
+            st.erase(it);
+        }else{
+            layersize = w;
+            res++;
+        }
+        
+    }    
+    cout << res;
+
+    cout << endl;
     return 0;
 }
 
