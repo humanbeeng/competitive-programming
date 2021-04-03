@@ -36,7 +36,7 @@ int solve() {
     int i;
     int j;
     i = str.find("11");
-    j = str.find("00");
+    j = str.rfind("00");
     if (i < j && i != -1 && j != 1) {
         cout << "NO" << endl;
         return 0;
