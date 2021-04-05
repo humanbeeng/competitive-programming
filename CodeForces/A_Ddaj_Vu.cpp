@@ -31,51 +31,40 @@ void setio(string s) {
 }
 
 int solve() {
-    int n;
-    cin >> n;
-    string a;
-    string b;
-    cin >> a;
-    cin >> b;
-    int zeroes = 0;
-    int ones = 0;
-    vii arr;
-    int j = 0;
-    fo(i, 0, n) {
-        if (a[i] == '0') {
-            zeroes++;
-        } else
-            ones++;
 
-        if (zeroes == ones) {
-            arr.push_back({j, i});
-            j = i + 1;
-        }
-    }
+    string str;
+    cin >> str;
+    string rev;
 
-    for (auto it : arr) {
-        if (a[it.first] == b[it.first]) {
-            continue;
-        } else {
-            for (int i = it.first; i <= it.second; i++) {
-                if (a[i] == '0')
-                    a[i] = '1';
-                else
-                    a[i] = '0';
-            }
-        }
-    }
-
-    fo(i, 0, n){
-        if(a[i] != b[i]){
-            cout << "NO\n";
+    int i = 0;
+    while(i<str.size()){
+        str.insert(str.begin() + i, 'a');
+        rev = string(str.rbegin(), str.rend());
+        if(rev != str){
+            cout << "YES" << endl;
+            cout << str << endl;
             return 0;
         }
+        str.erase(str.begin() + i);
+
+        str.insert(str.end() - 1 - i, 'a');
+        rev = string(str.rbegin(), str.rend());
+        if(rev != str){
+            cout << "YES" << endl;
+            cout << str << endl;
+            return 0;
+        }
+        str.erase(str.end() - 1 - i);
+        i++;
+
+        
     }
+    cout << "NO" << endl;
 
-    cout << "YES\n";
+   
+    
 
-
+   
 
     return 0;
 }

@@ -31,41 +31,29 @@ void setio(string s) {
 }
 
 int solve() {
-
     string str;
     cin >> str;
-    string rev;
 
-    int i = 0;
-    while(i<str.size()){
-        str.insert(str.begin() + i, 'a');
-        rev = string(str.rbegin(), str.rend());
-        if(rev != str){
-            cout << "YES" << endl;
-            cout << str << endl;
-            return 0;
-        }
-        str.erase(str.begin() + i);
-
-        str.insert(str.end() - 1 - i, 'a');
-        rev = string(str.rbegin(), str.rend());
-        if(rev != str){
-            cout << "YES" << endl;
-            cout << str << endl;
-            return 0;
-        }
-        str.erase(str.end() - 1 - i);
-        i++;
-
-        
+    str.insert(str.begin(), 'a');
+    string rev = string(str.rbegin(), str.rend());
+    if (rev != str) {
+        cout << "YES" << endl
+             << str << endl;
+        return 0;
     }
+    str.erase(str.begin());
+
+   
+
+    str.insert(str.end() - 1, 'a');
+    rev = string(str.rbegin(), str.rend());
+    if (str != rev) {
+        cout << "YES" << endl
+             << str << endl;
+        return 0;
+    }
+    str.erase(str.end()-1);
     cout << "NO" << endl;
-
-   
-    
-
-   
-
     return 0;
 }
 
