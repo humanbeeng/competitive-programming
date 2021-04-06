@@ -32,18 +32,27 @@ void setio(string s) {
 }
 
 int solve() {
-    int k, r;
-    cin >> k >> r;
-    int mult = k;
-    int res = 1;
+    int n, k;
+    cin >> n >> k;
+    string res = "";
 
-    while (k % 10 != 0 && k%10 != r) {
-        k = k + mult;
-        res++;
-        
+    string pat = "";
+
+    fo(i, 0, k) {
+        pat += char('a' + i);
+    }
+    
+    int rem = n % k;
+    int mult = n / k;
+
+    fo(i, 0, mult) {
+        res += pat;
+    }
+    fo(i, 0, rem) {
+        res += pat[i];
     }
 
-    cout << res;
+    cout << res << br;
 
     return 0;
 }

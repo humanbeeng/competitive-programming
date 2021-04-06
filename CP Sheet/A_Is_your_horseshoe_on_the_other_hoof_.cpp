@@ -32,17 +32,21 @@ void setio(string s) {
 }
 
 int solve() {
-    int k, r;
-    cin >> k >> r;
-    int mult = k;
-    int res = 1;
-
-    while (k % 10 != 0 && k%10 != r) {
-        k = k + mult;
-        res++;
-        
+    vi arr(4);
+    si st;
+    int res = 4;
+    fo(i, 0, 4){
+        int num;
+        cin >> num;
+        if(st.find(num) != st.end()){
+            st.insert(num);
+        }else{
+            st.insert(num);
+            res--;
+        }
     }
 
+    if(res == 4) res = 3;
     cout << res;
 
     return 0;

@@ -32,19 +32,19 @@ void setio(string s) {
 }
 
 int solve() {
-    int k, r;
-    cin >> k >> r;
-    int mult = k;
-    int res = 1;
+    int a, b;
+    cin >> a >> b;
+    int mx = max(a, b);
+    int numerator = 6 - mx + 1;
 
-    while (k % 10 != 0 && k%10 != r) {
-        k = k + mult;
-        res++;
-        
-    }
+    int denom = 6;
 
-    cout << res;
-
+    if(mx == 1) cout << "1/1";
+    if(mx == 2) cout << "5/6";
+    if(mx == 3) cout << "2/3";
+    if(mx == 4) cout << "1/2";
+    if(mx == 5) cout << "1/3";
+    if(mx == 6) cout << "1/6";
     return 0;
 }
 

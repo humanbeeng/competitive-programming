@@ -32,18 +32,46 @@ void setio(string s) {
 }
 
 int solve() {
-    int k, r;
-    cin >> k >> r;
-    int mult = k;
-    int res = 1;
+    int n;
+    cin >> n;
+    vi o;
+    vi t;
+    vi tt;
 
-    while (k % 10 != 0 && k%10 != r) {
-        k = k + mult;
-        res++;
-        
+    vi arr(n);
+    int ones = 0;
+    int twos = 0;
+    int threes = 0;
+    fo(i, 0, n) {
+        int num;
+        cin >> num;
+        if (num == 1) {
+            ones++;
+            o.pb(i);
+        } else if (num == 2) {
+            twos++;
+            t.pb(i);
+        } else {
+            threes++;
+            tt.pb(i);
+        }
     }
 
-    cout << res;
+    if (ones == 0 || twos == 0 || threes == 0) {
+        cout << "0" << br;
+        return 0;
+    }
+
+    int teamcount = imx;
+    teamcount = min(teamcount, ones);
+    teamcount = min(teamcount, twos);
+    teamcount = min(teamcount, threes);
+
+    cout << teamcount << br;
+
+    fo(i, 0, teamcount) {
+        cout << o[i]+1 << " " << t[i]+1 << " " << tt[i]+1 << br;
+    }
 
     return 0;
 }
