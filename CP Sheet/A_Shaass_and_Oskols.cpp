@@ -32,20 +32,29 @@ void setio(string s) {
 }
 
 int solve() {
-    int n, t, k, d;
-    cin >> n >> t >> k >> d;
-
-    int timeelapsed = 0;
-
-    while(timeelapsed <= d){
-        n -= k;
-        timeelapsed += t;
+    int n;
+    cin >> n;
+    int arr[n + 1];
+    fo(i, 1, n + 1) {
+        int num;
+        cin >> num;
+        arr[i] = num;
+    }
+    int m;
+    cin >> m;
+    fo(i, 0, m) {
+        int x, y;
+        cin >> x >> y;
+        int temp = arr[x];
+        arr[x] = 0;
+        arr[x - 1] = arr[x - 1] + (y - 1);
+        arr[x + 1] = arr[x + 1] + (temp - y);
+        
     }
 
-    if(n > 0){
-        cout << "YES" << br;
-        
-    }else cout << "NO" << br;
+    fo(i, 1, n+1){
+        cout << arr[i] << br;
+    }
 
     return 0;
 }
