@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Monaco','Consolas', 'Courier New', monospace",
+    "editor.fontFamily": "'Monaco', 'Consolas', 'Courier New', monospace",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
@@ -26,7 +26,12 @@
         "xhash": "cpp",
         "xiosbase": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.fontSize": 13
 }

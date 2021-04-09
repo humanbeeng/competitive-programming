@@ -31,7 +31,7 @@ void setio(string s){
 }
 
 int solve(){
-    int n, b, d;
+      int n, b, d;
     cin >> n >> b >> d;
     int count = 0;
     int curr = 0;
@@ -41,12 +41,13 @@ int solve(){
         if(num <= b){
             curr += num;
             if(curr > d){
-              count++;
+                count++;
                 curr = 0;
             }
         }
     }
     cout << count << br;
+
 
     return 0;
 }
@@ -64,3 +65,4 @@ int main(){
 
     return 0;
 }
+

@@ -31,22 +31,22 @@ void setio(string s){
 }
 
 int solve(){
-    int n, b, d;
-    cin >> n >> b >> d;
-    int count = 0;
-    int curr = 0;
-    fo(i, 0,n){
-        int num;
-        cin >> num;
-        if(num <= b){
-            curr += num;
-            if(curr > d){
-              count++;
-                curr = 0;
-            }
-        }
+    string str;
+    cin >> str;
+    string t;
+    cin >> t;
+    ll t_size = t.size();
+    int i = 0;
+    int j = 0;
+    while(j!=t_size){
+        if(str[i] == t[j]){
+            i++;
+            j++;
+        }else j++;
     }
-    cout << count << br;
+    i++;
+    cout << i;
+
 
     return 0;
 }

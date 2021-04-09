@@ -31,22 +31,8 @@ void setio(string s){
 }
 
 int solve(){
-    int n, b, d;
-    cin >> n >> b >> d;
-    int count = 0;
-    int curr = 0;
-    fo(i, 0,n){
-        int num;
-        cin >> num;
-        if(num <= b){
-            curr += num;
-            if(curr > d){
-              count++;
-                curr = 0;
-            }
-        }
-    }
-    cout << count << br;
+    
+
 
     return 0;
 }
@@ -64,3 +50,4 @@ int main(){
 
     return 0;
 }
+

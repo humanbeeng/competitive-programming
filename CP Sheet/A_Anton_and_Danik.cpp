@@ -36,7 +36,8 @@ int solve(){
     cin >> str;
     int a = 0;
     int d = 0;
-
+	
+    
     fo(i, 0, str.length()){
         if(str[i] == 'A'){
             a++;

@@ -13,7 +13,6 @@ using namespace std;
 #define mod 1000000007
 #define ssz(arrayy) sizeof(arrayy)/sizeof(arrayy[0])
 #define sf(num) scanf("%d", &num)
-#define br "\n"
 typedef vector<int> vi;
 typedef pair<int, int> ii;
 typedef long long ll;
@@ -31,22 +30,27 @@ void setio(string s){
 }
 
 int solve(){
-    int n, b, d;
-    cin >> n >> b >> d;
-    int count = 0;
-    int curr = 0;
-    fo(i, 0,n){
-        int num;
-        cin >> num;
-        if(num <= b){
-            curr += num;
-            if(curr > d){
-              count++;
-                curr = 0;
-            }
+    int n;
+    cin >> n;
+    string str;
+    cin >> str;
+    int a = 0;
+    int d = 0;
+
+    fo(i, 0, str.length()){
+        if(str[i] == 'A'){
+            a++;
+        }else if(str[i] == 'D'){
+            d++;
         }
     }
-    cout << count << br;
+
+    if(a > d){
+        cout << "Anton";
+    }else if(a < d){
+        cout << "Danik";
+    }else cout << "Friendship";
+
 
     return 0;
 }

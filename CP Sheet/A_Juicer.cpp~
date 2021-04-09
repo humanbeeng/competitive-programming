@@ -41,7 +41,7 @@ int solve(){
         if(num <= b){
             curr += num;
             if(curr > d){
-              count++;
+                count++;
                 curr = 0;
             }
         }

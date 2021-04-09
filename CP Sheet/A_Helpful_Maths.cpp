@@ -31,23 +31,25 @@ void setio(string s){
 }
 
 int solve(){
-    int n, b, d;
-    cin >> n >> b >> d;
-    int count = 0;
-    int curr = 0;
-    fo(i, 0,n){
-        int num;
-        cin >> num;
-        if(num <= b){
-            curr += num;
-            if(curr > d){
-              count++;
-                curr = 0;
-            }
+    string str;
+    cin >> str;
+
+    vi arr;
+
+    fo(i, 0, str.size()){
+        if(str[i] != '+'){
+            int num = str[i] - '0';
+            arr.pb(num);
         }
     }
-    cout << count << br;
-
+    sort(all(arr));
+    str = "";
+    for(int i = 0; i<arr.size(); i++){
+        str+= arr[i] + '0';
+        str+="+";
+    }
+    str.erase(str.end() - 1);
+    cout << str;
     return 0;
 }
 
