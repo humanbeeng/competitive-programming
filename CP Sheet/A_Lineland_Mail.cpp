@@ -32,13 +32,29 @@ void setio(string s) {
 }
 
 int solve() {
-    int n;
-    sf(n);
+    int sz;
+    cin >> sz;
     vi arr;
-    fo(i, 0, n){
-        
+    int summ = 0;
+
+    fo(i, 0, sz){
+        int num;
+        cin >> num;
+        arr.pb(num);
+        summ += abs(num);
     }
-    
+
+    fo(i, 0, sz){
+        if(i == 0){
+            cout << abs(arr[i+1] - arr[i]) << " " << abs(arr[sz - 1] - arr[0]) << br;
+        }
+        else if(i == (sz -1)){
+            cout << abs(arr[i - 1] - arr[i]) << " " << abs(arr[sz - 1] - arr[0]) << br;
+        }else{
+            cout << min(abs(arr[i] - arr[i-1]), abs(arr[i+1] - arr[i])) << " " << max(abs(arr[i] - arr[0]), abs(arr[sz - 1]- arr[i])) << br;
+        }
+    }
+
     return 0;
 }
 
