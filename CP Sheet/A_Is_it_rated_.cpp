@@ -8,9 +8,9 @@ using namespace std;
 #define pb(num) push_back(num)
 #define ppb pop_back()
 #define all(arr) arr.begin(), arr.end()
-#define pi(arr)                                            \
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) \
-    cout << arr[i] << ' '
+#define pi(arr)                                                                \
+  for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)                       \
+  cout << arr[i] << ' '
 #define imn INT_MIN
 #define imx INT_MAX
 #define mod 1000000007
@@ -28,36 +28,50 @@ typedef set<int> si;
 typedef set<string> ss;
 
 void setio(string s) {
-    freopen((s + ".in").c_str(), "r", stdin);
-    freopen((s + ".out").c_str(), "w", stdout);
+  freopen((s + ".in").c_str(), "r", stdin);
+  freopen((s + ".out").c_str(), "w", stdout);
 }
 
 int solve() {
-    int n;
-    cin >> n;
-    fo(i, 0, n) {
-        int x, y;
-        cin >> x >> y;
-        if (x != y) {
-            cout << "rated";
-            return 0;
-        }
+  int n;
+  cin >> n;
+
+  int arr[100000][2];
+
+  fo(i, 0, n) {
+    int x, y;
+    cin >> x >> y;
+    if (x != y) {
+      cout << "rated";
+      return 0;
     }
+    arr[i][0] = x;
+    arr[i][1] = y;
+  }
 
-    cout << "unrated";
+  for (int i = 0; i < n; i++) {
+    for (int j = i; j < n; j++) {
+      if (arr[i][0] < arr[j][0]) {
+        cout << "unrated";
+        return 0;
+      }
+    }
+  }
 
-    return 0;
+  cout << "maybe";
+
+  return 0;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    //setio("");
-    int t = 1;
-    //cin >> t;
-    while (t--) {
-        solve();
-    }
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  // setio("");
+  int t = 1;
+  // cin >> t;
+  while (t--) {
+    solve();
+  }
 
-    return 0;
+  return 0;
 }
