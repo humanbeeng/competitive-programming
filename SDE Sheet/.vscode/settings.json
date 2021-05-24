@@ -1,0 +1,40 @@
+{
+    "editor.fontFamily": "'Monaco', 'Consolas', 'Courier New', monospace",
+    "files.associations": {
+        "iostream": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "exception": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "map": "cpp",
+        "memory": "cpp",
+        "queue": "cpp",
+        "set": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "xhash": "cpp",
+        "xiosbase": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.fontSize": 13,
+    
+    "C_Cpp.clang_format_fallbackStyle": "LLVM"
+
+}
