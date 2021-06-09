@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Inconsolata','Victor Mono','Anonymous Pro B'",
+    "editor.fontFamily": "'Victor Mono'",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
@@ -35,6 +35,7 @@
     "C_Cpp.errorSquiggles": "Disabled",
     
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
-    "editor.fontWeight": "600" 
+    "editor.fontWeight": "600",
+    "editor.fontLigatures": "normal"
 
 }
