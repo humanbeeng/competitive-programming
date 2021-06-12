@@ -32,31 +32,39 @@ void setio(string s) {
 }
 
 int solve() {
-    int n;
-    cin >> n;
+    int p, n_streetlights;
+    cin >> n_streetlights >> p;
 
-    ll cities[n + 2];
-    memset(cities, 0, sizeof(cities));
-    for (int i = 1; i <= n; i++) {
-        ll n_criminals;
-        cin >> n_criminals;
-        if (n_criminals != -1) {
-            cities[i] = n_criminals + cities[i - 1];
-            cout << n_criminals << " ";
-        } else if (n_criminals == -1) {
-            ll est_bullets = (cities[i - 1] / (i - 1));
-            cout << est_bullets << " ";
-            cities[i] = est_bullets + cities[i - 1];
-        }
+    int light[1000001];
+    memset(light, 0, sizeof(light));
+    for (int i = 0; i < n_streetlights; i++) {
+        int xi, ri;
+        cin >> xi >> ri;
+        int left = max(xi - ri, 0);
+        int right = xi + ri + 1;
+        light[left]++;
+        light[right]--;
     }
 
-    // for(int i = 0; i < n; i++){
-    //     cout << cities[i] << " ";
-    // }
+    for (int i = 1; i <= p ; i++) {
+        light[i] = light[i] + light[i - 1];
+    }
 
-    cout << br;
+    int dark_till_now = 0;
+    int max_dark = 0;
+
+    for (int i = 0; i <= p; i++) {
+        if (light[i] != 1) {
+            dark_till_now++;
+        } else {
+            max_dark = max(max_dark, dark_till_now);
+            dark_till_now = 0;
+        }
+    }
+    cout << max(max_dark, dark_till_now);
 
     return 0;
+   
 }
 
 int main() {
@@ -64,7 +72,7 @@ int main() {
     cin.tie(0);
     //setio("");
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         solve();
     }

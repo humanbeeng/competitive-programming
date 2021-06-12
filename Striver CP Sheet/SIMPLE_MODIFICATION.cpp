@@ -32,29 +32,37 @@ void setio(string s) {
 }
 
 int solve() {
-    int n;
-    cin >> n;
-
-    ll cities[n + 2];
-    memset(cities, 0, sizeof(cities));
+    int n, m, u, q;
+    cin >> n >> m >> u >> q;
+    int arr[n][m] = {0};
     for (int i = 1; i <= n; i++) {
-        ll n_criminals;
-        cin >> n_criminals;
-        if (n_criminals != -1) {
-            cities[i] = n_criminals + cities[i - 1];
-            cout << n_criminals << " ";
-        } else if (n_criminals == -1) {
-            ll est_bullets = (cities[i - 1] / (i - 1));
-            cout << est_bullets << " ";
-            cities[i] = est_bullets + cities[i - 1];
+        for (int j = 1; j <= m; j++) {
+            cin >> arr[i][j];
         }
     }
 
-    // for(int i = 0; i < n; i++){
-    //     cout << cities[i] << " ";
-    // }
+    int prefix_arr[n + 2][m + 2];
+    memset(prefix_arr, 0, sizeof(prefix_arr));
+    int k, r1, c1, r2, c2;
 
-    cout << br;
+    for (int i = 0; i < q; i++) {
+        cin >> k >> r1 >> c1 >> r2 >> c2;
+        prefix_arr[r1][c1] += k;
+        prefix_arr[r2 + 1][c2 + 1] -= k;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            prefix_arr[i][j] = prefix_arr[i][j] + prefix_arr[i - 1][j - 1];
+        }
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            cout << prefix_arr[i][j] << " ";
+        }
+        cout << br;
+    }
 
     return 0;
 }
@@ -64,7 +72,7 @@ int main() {
     cin.tie(0);
     //setio("");
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         solve();
     }
