@@ -34,34 +34,26 @@ void setio(string s) {
 int solve() {
     int n, m, u, q;
     cin >> n >> m >> u >> q;
-    int arr[n][m] = {0};
+
+    int arr[n + 2][m + 2];
+    memset(arr, 0, sizeof(arr));
+    int prefix[n + 3][m + 3];
+    memset(prefix, 0, sizeof(prefix));
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
-            cin >> arr[i][j];
+            int num;
+            cin >> num;
+            arr[i][j] = num;
+            prefix[i][j] = arr[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
         }
     }
 
-    int prefix_arr[n + 2][m + 2];
-    memset(prefix_arr, 0, sizeof(prefix_arr));
     int k, r1, c1, r2, c2;
-
-    for (int i = 0; i < q; i++) {
+    for(int i = 0; i < u; i++){
         cin >> k >> r1 >> c1 >> r2 >> c2;
-        prefix_arr[r1][c1] += k;
-        prefix_arr[r2 + 1][c2 + 1] -= k;
-    }
+        
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            prefix_arr[i][j] = prefix_arr[i][j] + prefix_arr[i - 1][j - 1];
-        }
-    }
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            cout << prefix_arr[i][j] << " ";
-        }
-        cout << br;
     }
 
     return 0;
