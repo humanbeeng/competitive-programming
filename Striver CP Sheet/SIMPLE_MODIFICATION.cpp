@@ -45,7 +45,7 @@ int solve() {
     memset(prefix_arr, 0, sizeof(prefix_arr));
     int k, r1, c1, r2, c2;
 
-    for (int i = 0; i < q; i++) {
+    for (int i = 0; i < u; i++) {
         cin >> k >> r1 >> c1 >> r2 >> c2;
         prefix_arr[r1][c1] += k;
         prefix_arr[r2 + 1][c2 + 1] -= k;
