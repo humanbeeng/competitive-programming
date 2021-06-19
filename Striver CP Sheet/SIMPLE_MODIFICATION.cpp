@@ -50,7 +50,12 @@ int solve() {
     }
 
     int k, r1, c1, r2, c2;
+<<<<<<< HEAD
+
+    for (int i = 0; i < u; i++) {
+=======
     for(int i = 0; i < u; i++){
+>>>>>>> 512570bfdf6553a2fab65687c4844b7cfce86c90
         cin >> k >> r1 >> c1 >> r2 >> c2;
         
 
