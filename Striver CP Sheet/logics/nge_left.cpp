@@ -32,34 +32,33 @@ void setio(string s) {
 }
 
 int solve() {
-    int n, m, u, q;
-    cin >> n >> m >> u >> q;
+    int arr[] = {1, 3, 2, 4};
+    int n = 4;
+    stack<int> st;
+    vi ngl;
 
-    int arr[n + 2][m + 2];
-    memset(arr, 0, sizeof(arr));
-    int prefix[n + 3][m + 3];
-    memset(prefix, 0, sizeof(prefix));
+    for (int i = 0; i < n; i++) {
+        if (st.empty()) {
+            ngl.pb(-1);
+        } else if (!st.empty() && st.top() > arr[i]) {
+            ngl.pb(st.top());
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            int num;
-            cin >> num;
-            arr[i][j] = num;
-            prefix[i][j] = arr[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
+        } else if (!st.empty() && st.top() <= arr[i]) {
+            while (!st.empty() && st.top() <= arr[i]) {
+                st.pop();
+            }
+            if (st.empty()) {
+                ngl.pb(-1);
+            } else {
+                ngl.pb(st.top());
+            }
         }
+        st.push(arr[i]);
     }
 
-    int k, r1, c1, r2, c2;
-<<<<<<< HEAD
-
-    for (int i = 0; i < u; i++) {
-=======
-    for(int i = 0; i < u; i++){
->>>>>>> 512570bfdf6553a2fab65687c4844b7cfce86c90
-        cin >> k >> r1 >> c1 >> r2 >> c2;
-        
-
-    }
+	for(int item : ngl){
+		cout << item << " " ; 
+	}
 
     return 0;
 }

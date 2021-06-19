@@ -32,33 +32,33 @@ void setio(string s) {
 }
 
 int solve() {
-    int n, m, u, q;
-    cin >> n >> m >> u >> q;
+    int arr[] = {4, 5, 2, 25, 7, 8};
+    stack<int> st;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> nge;
 
-    int arr[n + 2][m + 2];
-    memset(arr, 0, sizeof(arr));
-    int prefix[n + 3][m + 3];
-    memset(prefix, 0, sizeof(prefix));
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            int num;
-            cin >> num;
-            arr[i][j] = num;
-            prefix[i][j] = arr[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1];
+    for (int i = n - 1; i >= 0; i--) {
+        if (st.empty()) {
+            nge.push_back(-1);
+        } else if (!st.empty() && arr[i] < st.top()) {
+            nge.pb(st.top());
+        } else if (!st.empty() && arr[i] > st.top()) {
+            while (!st.empty() && arr[i] >= st.top()) {
+                st.pop();
+            }
+            if (st.empty()) {
+                nge.pb(-1);
+            } else if (arr[i] < st.top()) {
+                nge.pb(st.top());
+            }
         }
+        st.push(arr[i]);
     }
 
-    int k, r1, c1, r2, c2;
-<<<<<<< HEAD
+    reverse(nge.begin(), nge.end());
 
-    for (int i = 0; i < u; i++) {
-=======
-    for(int i = 0; i < u; i++){
->>>>>>> 512570bfdf6553a2fab65687c4844b7cfce86c90
-        cin >> k >> r1 >> c1 >> r2 >> c2;
-        
-
+    for (int item : nge) {
+        cout << item << " ";
     }
 
     return 0;
