@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'Inconsolata','Victor Mono','Anonymous Pro B'",
+    "editor.fontFamily": "'Victor Mono'",
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",

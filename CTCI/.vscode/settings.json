@@ -1,13 +1,14 @@
 {
-	"files.associations": {
-		"iostream": "cpp",
-		"array": "cpp",
-		"*.tcc": "cpp",
-		"bitset": "cpp",
-		"random": "cpp",
-		"functional": "cpp",
-		"iomanip": "cpp",
-		"istream": "cpp",
-		"streambuf": "cpp"
-	}
+  "files.associations": {
+    "iostream": "cpp",
+    "array": "cpp",
+    "*.tcc": "cpp",
+    "bitset": "cpp",
+    "random": "cpp",
+    "functional": "cpp",
+    "iomanip": "cpp",
+    "istream": "cpp",
+    "streambuf": "cpp"
+  },
+  "editor.fontFamily": "'Victor Mono'"
 }
