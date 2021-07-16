@@ -14,7 +14,7 @@ int knapsack_tabulation(int wt[], int val[], int W, int n) {
 	hence make a matrix of that depicting the results of two
 	variables. 
 	 */
-    memset(t, -1, sizeof(t));
+
     //Step 1 : Initialization
 
     for (int i = 0; i < n + 1; i++) {
