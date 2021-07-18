@@ -17,8 +17,8 @@ private:
 
 private:
     void _initialize(int sum, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < sum; j++) {
+        for (int i = 0; i < n + 1; i++) {
+            for (int j = 0; j < sum + 1; j++) {
                 if (i == 0)
                     t[i][j] = false;
                 if (j == 0)
@@ -37,6 +37,7 @@ private:
     void _solve(int arr[], int sum, int n) {
         if (!_isEven(sum)) {
             res = false;
+            return;
         }
         sum = sum / 2;
         _initialize(sum, n);
@@ -60,7 +61,7 @@ public:
 
 int main() {
     int n = 4;
-    int arr[] = {1000, 300, 800, 500};
+    int arr[] = {1, 0, 4, 5};
     int sum = 0;
     for (int i = 0; i < 4; i++) {
         sum += arr[i];
