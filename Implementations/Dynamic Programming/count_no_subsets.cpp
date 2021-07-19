@@ -12,15 +12,6 @@ public:
         _solve(arr, sum, n);
     }
 
-    void print_t(int sum, int n) {
-        for (int i = 0; i < n + 1; i++) {
-            for (int j = 0; j < sum + 1; j++) {
-                cout << t[i][j] << " ";
-            }
-            cout << "\n";
-        }
-    }
-
 private:
     int t[1002][1002];
 
@@ -50,6 +41,7 @@ private:
             }
         }
         res = t[n][sum];
+        return;
     }
 
 public:
@@ -59,13 +51,14 @@ public:
 };
 
 int main() {
+
     int arr[] = {2, 3, 5, 8, 6, 10};
     int sum = 10;
     int n = 6;
     CountNoOfSubsets cns = CountNoOfSubsets(arr, sum, n);
-    int res = cns.fetch_res();
-
-    cout << res;
+    // int res = cns.fetch_res();
+    cout << "hello";
+    // cout << res;
 
     return 0;
 }
