@@ -6,38 +6,64 @@ using namespace std;
 
 class BFSTraversal {
 private:
-    int n_nodes;
+    int n_edges;
+
+public:
+    vector<int> res;
 
 public:
     BFSTraversal(int n) {
-        n_nodes = n;
-        vector<int> arr[n_nodes + 1];
-        construct_graph(arr, n_nodes);
+        n_edges = n;
+        _construct_graph(n_edges);
+    }
+
+private:
+    void _construct_graph(int n_edges) {
+        vector<int> adj_list[n_edges];
+
+        int source, destination;
+        for (int i = 0; i < n_edges; i++) {
+            cin >> source >> destination;
+            adj_list[source].push_back(destination);
+            adj_list[destination].push_back(source);
+        }
+        int root;
+        cin >> root;
+        _bfs(adj_list, n_edges, root);
+    }
+
+private:
+    void _bfs(vector<int> adj_list[], int n_edges, int root) {
+        queue<int> q;
+        vector<bool> visited(n_edges, false);
+        visited[root] = true;
+        res.push_back(root);
+        q.push(root);
+        cout << "\n";
+        while (!q.empty()) {
+            int curr_node = q.front();
+            q.pop();
+
+            for (int neighbour : adj_list[curr_node]) {
+                if (!visited[neighbour]) {
+                    q.push(neighbour);
+                    visited[neighbour] = true;
+                    res.push_back(neighbour);
+                }
+            }
+        }
     }
 
 public:
-    void construct_graph(vector<int> adj_list[], int n_nodes) {
-        cout << "Enter your Graph : \n";
-        cin >> n_nodes;
-
-        int source, destination;
-        for (int i = 0; i < n_nodes; i++) {
-            cin >> source >> destination;
-            arr[source].push_back(destination);
-            arr[destination].push_back(source);
+    void print_res() {
+        for (int item : res) {
+            cout << item << " ";
         }
-    }
-	
-	void bfs(vector<int> arr[], )
-
-    void bfs_initiator(vector<int> arr[], int n_nodes) {
-        queue<int> q;
-        vector<int> visited(n_nodes, 0);
-
     }
 };
 
 int main() {
-
+    BFSTraversal bfs_1 = BFSTraversal(6);
+    bfs_1.print_res();
     return 0;
 }
