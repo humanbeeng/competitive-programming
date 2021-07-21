@@ -50,16 +50,17 @@ private:
     }
 
 public:
-    void initiate_bfs(int source) {
+    void initiate_dfs(int source) {
         visited[source] = true;
         res.push_back(source);
         for (int neighbour : adj_list[source]) {
             if (!visited[neighbour]) {
-                initiate_bfs(neighbour);
+                initiate_dfs(neighbour);
             }
         }
     }
 
+public:
     void print_res() {
         for (int item : res) {
             cout << item << " ";
@@ -69,7 +70,7 @@ public:
 
 int main() {
     DFSTraversal dfs_obj = DFSTraversal(6, 7);
-    dfs_obj.initiate_bfs(5);
+    dfs_obj.initiate_dfs(5);
     dfs_obj.print_res();
     return 0;
 }
