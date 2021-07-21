@@ -25,6 +25,7 @@ public:
     DFSTraversal(int n_nodes, int n_connections) {
         this->n_connections = n_connections;
         this->n_nodes = n_nodes;
+        this->adj_list.clear();
         this->adj_list = _construct_graph(this->n_nodes);
         memset(visited, false, sizeof(visited));
     }
