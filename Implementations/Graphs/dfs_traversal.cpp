@@ -6,7 +6,7 @@ Author : humanbeeng
 Requirements : 
 1. Construct graph when new object is initialized by default
 2. User can perform bfs from any given node without having to construct graph again and again
-perform_bfs(1); should yield vector <int> path;
+perform_dfs(1); should yield vector <int> path;
 
  */
 
