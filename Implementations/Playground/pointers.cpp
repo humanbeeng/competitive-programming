@@ -51,26 +51,36 @@ using namespace std;
  
   */
 
-// void pointer_arr(int arr_pointer[]) {
-//     int n = sizeof()
-// }
-
 void increment(int *n_pointer) {
 
     (*n_pointer)++;
 }
 
+void increment_diff_type(int &n) {
+    cout << "Inside the increment function \n";
+    int *n_pointer = &n;
+    (*n_pointer)++;
+    cout << *n_pointer << "\n";
+}
+
+void modify_arr(int arr[]) {
+    arr[3] = 1000;
+}
+
 int main() {
     int n;
     cin >> n;
-    int arr[] = {1, 2, 3, 4, 5};
-    int *arr_pointer = arr;
+
+    // ----------------------------------------------------------------------------------------------------------------
 
     // cout << "Address of n is " << &n << '\n';
-    int *n_pointer = &n;
-    cout << "Value of n : " << n << '\n';
-    increment(&n);
-    cout << "value of n : " << n << '\n';
+    // int *n_pointer = &n;
+
+    // cout << "Value of n : " << n << '\n';
+
+    // increment_diff_type(n);
+
+    // cout << "value of n : " << n << '\n';
 
     // int *b = &n;
     // pointer_arr(arr_pointer);
@@ -78,6 +88,24 @@ int main() {
     // cout << "Value of n is " << *(&n) << '\n';
     // cout << "Address field of b contains " << &b << '\n';
     // cout << "Data field of b is " << b << '\n';
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    // DEALING WITH ARRAYS
+    int arr[] = {1, 2, 3, 4, 5};
+    cout << "\n Before modification arr is : ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << '\n';
+
+    modify_arr(arr);
+
+    cout << "\n After modification arr is : ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << '\n';
 
     return 0;
 }
