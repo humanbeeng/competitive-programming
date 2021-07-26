@@ -12,7 +12,7 @@ void print_stack(stack<int> st) {
     return;
 }
 
-void insert_back(stack<int> &st, int to_bottom) {
+void insert_back(stack<int> st, int to_bottom) {
     if (st.size() == 0) {
         st.push(to_bottom);
         return;
@@ -25,7 +25,7 @@ void insert_back(stack<int> &st, int to_bottom) {
     return;
 }
 
-void reverse_stack(stack<int> &st) {
+void reverse_stack(stack<int> st) {
     if (st.size() == 1) {
         //Already reversed !
         return;
