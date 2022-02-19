@@ -4,7 +4,7 @@ Author : humanbeeng
 #include <bits/stdc++.h>
 using namespace std;
 
-int search_nearly_sorted_array(vector<int> arr, int n_elements) {
+int SearchNearlySortedArray(vector<int> arr, int n_elements) {
 }
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
         int key;
         cin >> key;
 
-        int key_idx = search_nearly_sorted_array(arr, n_elements, key);
+        int key_idx = SearchNearlySortedArray(arr, n_elements, key);
 
         cout << key_idx;
     }
