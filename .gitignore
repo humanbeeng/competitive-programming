@@ -1,2 +1,6 @@
 .cph/
 *.bin
+.vscode
+settings.json
+launch.json
+tasks.json
