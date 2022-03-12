@@ -18,7 +18,6 @@ void BalancedParanthesesPermutationGenerator(int n_pairs, string parantheses_str
     wrapped_parantheses.push_back(')');
 
     BalancedParanthesesPermutationGenerator(n_pairs - 1, wrapped_parantheses, result);
-
     // Choice 2 : Left appended parantheses
     string left_appended_parantheses = "()";
     left_appended_parantheses.append(parantheses_string);
