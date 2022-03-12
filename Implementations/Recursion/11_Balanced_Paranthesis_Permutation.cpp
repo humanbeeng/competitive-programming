@@ -5,6 +5,7 @@ Author : humanbeeng
 using namespace std;
 
 void BalancedParanthesesPermutationGenerator(int n_pairs, string parantheses_string, set<string> &result) {
+
     if (n_pairs == 0) {
         result.insert(parantheses_string);
         return;
@@ -37,6 +38,7 @@ void BalancedParanthesesPermutationGenerator(int n_pairs, string parantheses_str
 set<string> BalancedParanthesisPermutation(int n_pairs) {
     set<string> result;
     string parantheses_string = "";
+
     BalancedParanthesesPermutationGenerator(n_pairs, parantheses_string, result);
 
     return result;
