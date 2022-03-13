@@ -24,7 +24,5 @@ int main() {
 
     cout << JosephusProblem(n, k, 1);
 
-    // cout << josephus(n, k);
-
     return 0;
 }
