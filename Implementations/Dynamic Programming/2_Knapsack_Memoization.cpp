@@ -6,16 +6,19 @@ using namespace std;
 
 int t[1002][1002];
 
-int knapsack_memoized(int wt[], int val[], int capacity, int n) {
-    if (n == 0 || capacity == 0)
-        return 0;
+int knapsackMemoized(int wt[], int val[], int capacity, int n) {
+    if (n == 0 || capacity == 0) {
+        return t[n][capacity] = 0;
+    }
+
     if (t[n][capacity] != -1)
         return t[n][capacity];
 
     if (wt[n - 1] > capacity) {
-        return t[n][capacity] = knapsack_memoized(wt, val, capacity, n - 1);
-    } else
-        return t[n][capacity] = max(val[n - 1] + knapsack_memoized(wt, val, capacity - wt[n - 1], n - 1), knapsack_memoized(wt, val, capacity, n - 1));
+        return t[n][capacity] = knapsackMemoized(wt, val, capacity, n - 1);
+    } else {
+        return t[n][capacity] = max(val[n - 1] + knapsackMemoized(wt, val, capacity - wt[n - 1], n - 1), knapsackMemoized(wt, val, capacity, n - 1));
+    }
 }
 
 int main() {
@@ -35,7 +38,7 @@ int main() {
     }
     int capacity;
     cin >> capacity;
-    int res = knapsack_memoized(wt, val, capacity, n);
+    int res = knapsackMemoized(wt, val, capacity, n);
     cout << res;
 
     return 0;
